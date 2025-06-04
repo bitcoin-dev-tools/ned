@@ -18,7 +18,7 @@
       };
       binds.whichKey.enable = true;
       enableLuaLoader = true;
-      git.gitsigns.enable = true;
+      git.enable = true;
       languages = import ./languages.nix {inherit pkgs;};
       lsp.enable = true;
       # Vim globals
