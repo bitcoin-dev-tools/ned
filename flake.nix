@@ -48,6 +48,17 @@
             {
               config.vim = {
                 inherit languages;
+                autocomplete.blink-cmp.enable = true;
+                autocomplete.blink-cmp.friendly-snippets.enable = true;
+                autocomplete.blink-cmp.setupOpts.sources.default = [
+                  "lsp"
+                  "path"
+                  "snippets"
+                  "buffer"
+                  "omni"
+                  "cmdline"
+                ];
+                autocomplete.blink-cmp.setupOpts.fuzzy.implementation = "prefer_rust_with_warning";
                 enableLuaLoader = true; # Speed up plugin load time
                 lsp.enable = true;
                 theme.enable = true;
