@@ -27,7 +27,7 @@
         maplocalleader = " ";
       };
       # Vim options
-      options = import ./options.nix ;
+      options = import ./options.nix {inherit (pkgs) lib;};
       keymaps = [
         {
           key = "<Space>";
