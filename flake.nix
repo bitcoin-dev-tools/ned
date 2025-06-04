@@ -48,24 +48,28 @@
             {
               config.vim = {
                 inherit languages;
-                autocomplete.blink-cmp.enable = true;
-                autocomplete.blink-cmp.friendly-snippets.enable = true;
-                autocomplete.blink-cmp.setupOpts.sources.default = [
-                  "lsp"
-                  "path"
-                  "snippets"
-                  "buffer"
-                  "omni"
-                  "cmdline"
-                ];
-                autocomplete.blink-cmp.setupOpts.fuzzy.implementation = "prefer_rust_with_warning";
+                autocomplete.blink-cmp = {
+                  enable = true;
+                  friendly-snippets.enable = true;
+                  setupOpts = {
+                    fuzzy.implementation = "prefer_rust_with_warning";
+                    sources.default = [
+                      "lsp"
+                      "path"
+                      "snippets"
+                      "buffer"
+                      "omni"
+                      "cmdline"
+                    ];
+                  };
+                };
                 enableLuaLoader = true; # Speed up plugin load time
-                visuals.fidget-nvim.enable = true;
                 git.gitsigns.enable = true;
-                statusline.lualine.enable = true;
                 lsp.enable = true;
+                statusline.lualine.enable = true;
                 theme.enable = true;
                 treesitter.enable = true;
+                visuals.fidget-nvim.enable = true;
                 luaConfigRC.custom-options =
                   /*
                   lua
