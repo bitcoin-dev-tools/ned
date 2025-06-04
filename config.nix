@@ -27,36 +27,7 @@
         maplocalleader = " ";
       };
       # Vim options
-      options = {
-        hlsearch = false;
-        number = true;
-        relativenumber = true;
-        signcolumn = "yes";
-        wrap = false;
-        splitbelow = true;
-        splitright = true;
-        expandtab = true;
-        shiftwidth = 4;
-        tabstop = 4;
-        softtabstop = 4;
-        shell = "bash";
-        mouse = "a";
-        breakindent = true;
-        undofile = true;
-        ignorecase = true;
-        smartcase = true;
-        updatetime = 250;
-        conceallevel = 0;
-        cursorline = true;
-        clipboard = "unnamedplus";
-        listchars = "trail:~,tab:>-,nbsp:␣";
-        list = true;
-        laststatus = 3;
-        showmode = false;
-        linebreak = true;
-        breakindentopt = "list:-1";
-        backup = true;
-      };
+      options = import ./options.nix ;
       keymaps = [
         {
           key = "<Space>";
