@@ -3,19 +3,19 @@
     enable = true;
     setupOpts = {
       formatters_by_ft = {
-        bash = [ "shfmt" "shellcheck" ];
-        c = [ "clang_format" ];
-        cpp = [ "clang_format" ];
-        fish = [ "fish_indent" ];
-        go = [ "gofmt" ];
-        lua = [ "stylua" ];
-        markdown = [ "mdformat" ];
-        python = [ "ruff_format" ];
-        rust = [ "rustfmt" ];
-        sh = [ "shfmt" "shellcheck" ];
-        yaml = [ "yamlfmt" ];
-        "*" = [ "codespell" ];
-        "_" = [ "trim_whitespace" ];
+        bash = ["shfmt" "shellcheck"];
+        c = ["clang_format"];
+        cpp = ["clang_format"];
+        fish = ["fish_indent"];
+        go = ["gofmt"];
+        lua = ["stylua"];
+        markdown = ["mdformat"];
+        python = ["ruff_format"];
+        rust = ["rustfmt"];
+        sh = ["shfmt" "shellcheck"];
+        yaml = ["yamlfmt"];
+        "*" = ["codespell"];
+        "_" = ["trim_whitespace"];
       };
       format_on_save = {
         _type = "lua-inline";
@@ -31,7 +31,7 @@
       };
       formatters = {
         shfmt = {
-          prepend_args = [ "-i" "2" ];
+          prepend_args = ["-i" "2"];
         };
       };
     };
