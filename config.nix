@@ -21,13 +21,11 @@
       git.gitsigns.enable = true;
       languages = import ./languages.nix {inherit pkgs;};
       lsp.enable = true;
-
-      # Global variables
+      # Vim globals
       globals = {
         mapleader = " ";
         maplocalleader = " ";
       };
-
       # Vim options
       options = {
         hlsearch = false;
@@ -59,8 +57,6 @@
         breakindentopt = "list:-1";
         backup = true;
       };
-
-      # Key mappings
       keymaps = [
         {
           key = "<Space>";
@@ -69,18 +65,6 @@
           desc = "Disable space key";
         }
       ];
-
-      # Custom lua configuration using DAG
-      luaConfigRC = {
-        # Directory setup - needs to be done early
-        directory-setup = ''
-          -- Set directories for swap, backup, and undo files
-          local data_dir = vim.fn.stdpath("data")
-          vim.opt.directory = data_dir .. "/swap//"
-          vim.opt.backupdir = data_dir .. "/backup//"
-          vim.opt.undodir = data_dir .. "/undo//"
-        '';
-      };
       statusline.lualine = {
         enable = true;
         theme = "auto";
