@@ -60,6 +60,7 @@
                 ];
                 autocomplete.blink-cmp.setupOpts.fuzzy.implementation = "prefer_rust_with_warning";
                 enableLuaLoader = true; # Speed up plugin load time
+                visuals.fidget-nvim.enable = true;
                 lsp.enable = true;
                 theme.enable = true;
                 treesitter.enable = true;
