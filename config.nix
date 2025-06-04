@@ -106,5 +106,5 @@
         vim.opt.backup = true
         vim.opt.undofile = true
       '';
-  };
+  } // (import ./conform.nix).config.vim;
 }
