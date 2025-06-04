@@ -87,6 +87,7 @@
       theme.enable = true;
       treesitter.enable = true;
       visuals.fidget-nvim.enable = true;
+      visuals.nvim-web-devicons.enable = true;
     }
     // (import ./conform.nix).config.vim // (import ./snacks.nix).config.vim;
 }
