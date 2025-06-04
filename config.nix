@@ -16,6 +16,7 @@
           ];
         };
       };
+      binds.whichKey.enable = true;
       enableLuaLoader = true;
       git.gitsigns.enable = true;
       languages = import ./languages.nix {inherit pkgs;};
