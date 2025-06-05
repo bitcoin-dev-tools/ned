@@ -16,11 +16,6 @@
 
   python = {
     treesitter.enable = true;
-    # enable = true;
-    # lsp = {
-    #   enable = true;
-    #   server = "basedpyright";
-    # };
   };
 
   rust = {
