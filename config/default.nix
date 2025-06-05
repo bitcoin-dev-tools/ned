@@ -34,7 +34,7 @@
             };
           };
           "basedpyright" = {
-            cmd = ["basedpyright-langserver" "--stdio"];
+            cmd = [ "${pkgs.basedpyright}/bin/basedpyright-langserver" "--stdio" ];
             root_markers = [
               ".git"
               "Pipfile"
