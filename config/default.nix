@@ -1,4 +1,7 @@
-{pkgs}: {
+{
+  pkgs,
+  lib,
+}: {
   config.vim =
     {
       autocomplete.blink-cmp = {
@@ -34,7 +37,7 @@
             };
           };
           "basedpyright" = {
-            cmd = [ "${pkgs.basedpyright}/bin/basedpyright-langserver" "--stdio" ];
+            cmd = ["${pkgs.basedpyright}/bin/basedpyright-langserver" "--stdio"];
             root_markers = [
               ".git"
               "Pipfile"
@@ -87,7 +90,19 @@
         theme = "auto";
       };
       theme.enable = true;
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        highlight.disable = lib.generators.mkLuaInline "
+          -- Disable slow treesitter highlight for large files
+          function(lang, buf)
+            local max_filesize = 1000 * 1024 -- 1MB
+            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            if ok and stats and stats.size > max_filesize then
+                return true
+            end
+          end
+          ";
+      };
       visuals = {
         fidget-nvim.enable = true;
         nvim-web-devicons.enable = true;
