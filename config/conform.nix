@@ -15,8 +15,7 @@
         rust = ["rustfmt"];
         sh = ["shfmt" "shellcheck"];
         yaml = ["yamlfmt"];
-        "*" = ["codespell"];
-        "_" = ["trim_whitespace"];
+        "_" = ["trim_whitespace"]; # If no other formatter specified
       };
       format_on_save = {
         _type = "lua-inline";
@@ -30,21 +29,27 @@
           end
         '';
       };
+      notify_on_error = true;
+      notify_no_formatters = true;
       formatters = {
         alejandra = {
           command = "${pkgs.alejandra}/bin/alejandra";
-        };
-        codespell = {
-          command = "${pkgs.codespell}/bin/codespell";
+          stdin = true;
+          args = ["-"];
         };
         mdformat = {
           command = "${pkgs.mdformat}/bin/mdformat";
+          stdin = true;
+          args = ["-"];
         };
         shfmt = {
           prepend_args = ["-i" "2"];
+          stdin = true;
         };
         stylua = {
           command = "${pkgs.stylua}/bin/stylua";
+          stdin = true;
+          args = ["-"];
         };
       };
     };

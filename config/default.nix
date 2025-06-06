@@ -111,10 +111,10 @@
           desc = "Disable space key";
         }
       ];
-      augroups = [ { name = "LSP"; } ];
+      augroups = [{name = "LSP";}];
       autocmds = [
         {
-          event = [ "LspAttach" ];
+          event = ["LspAttach"];
           group = "LSP";
           desc = "Configure LSP keymaps";
           callback = lib.generators.mkLuaInline ''
