@@ -10,6 +10,7 @@
         go = ["gofmt"];
         lua = ["stylua"];
         markdown = ["mdformat"];
+        nix = ["alejandra"];
         python = ["ruff_format"];
         rust = ["rustfmt"];
         sh = ["shfmt" "shellcheck"];
@@ -30,6 +31,9 @@
         '';
       };
       formatters = {
+        alejandra = {
+          command = "${pkgs.alejandra}/bin/alejandra";
+        };
         codespell = {
           command = "${pkgs.codespell}/bin/codespell";
         };
