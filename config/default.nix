@@ -111,6 +111,28 @@
           desc = "Disable space key";
         }
       ];
+      augroups = [ { name = "LSP"; } ];
+      autocmds = [
+        {
+          event = [ "LspAttach" ];
+          group = "LSP";
+          desc = "Configure LSP keymaps";
+          callback = lib.generators.mkLuaInline ''
+            function(args)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                if client then
+                  vim.keymap.set("n", "<leader>d", function()
+                    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+                  end)
+                  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+                  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+                  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Do[K]umentation" })
+                  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Do[K]umentation" })
+                end
+            end
+          '';
+        }
+      ];
       statusline.lualine = {
         enable = true;
         theme = "auto";
