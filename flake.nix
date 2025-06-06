@@ -18,7 +18,10 @@
         (nvf.lib.neovimConfiguration {
           inherit pkgs;
           modules = [
-            (import ./config {inherit pkgs; lib = pkgs.lib;})
+            (import ./config {
+              inherit pkgs;
+              lib = pkgs.lib;
+            })
           ];
         }).neovim;
       formatter = pkgs.alejandra;

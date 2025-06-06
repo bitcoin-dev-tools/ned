@@ -67,11 +67,31 @@
               };
             };
           };
-          "nil" = {
+          "nil_ls" = {
             cmd = ["${pkgs.nil}/bin/nil"];
             filetypes = ["nix"];
             root_markers = ["flake.nix" ".git"];
             single_file_support = true;
+          };
+          "ruff" = {
+            cmd = ["${pkgs.ruff}/bin/ruff" "server"];
+            filetypes = ["python"];
+            root_markers = [
+              ".git"
+              "Pipfile"
+              "pyproject.toml"
+              "pyrightconfig.json"
+              "requirements.txt"
+              "ruff.toml"
+              "setup.cfg"
+              "setup.py"
+            ];
+            single_file_support = true;
+            capabilities = {
+              textDocument = {
+                hoverProvider = false;
+              };
+            };
           };
         };
       };
