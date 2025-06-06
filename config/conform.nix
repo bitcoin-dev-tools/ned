@@ -1,4 +1,6 @@
 {
+  pkgs,
+}: {
   config.vim.formatter.conform-nvim = {
     enable = true;
     setupOpts = {
@@ -30,8 +32,17 @@
         '';
       };
       formatters = {
+        codespell = {
+          command = "${pkgs.codespell}/bin/codespell";
+        };
+        mdformat = {
+          command = "${pkgs.mdformat}/bin/mdformat";
+        };
         shfmt = {
           prepend_args = ["-i" "2"];
+        };
+        stylua = {
+          command = "${pkgs.stylua}/bin/stylua";
         };
       };
     };

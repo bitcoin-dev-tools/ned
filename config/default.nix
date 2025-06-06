@@ -108,5 +108,5 @@
         nvim-web-devicons.enable = true;
       };
     }
-    // (import ./conform.nix).config.vim // (import ./snacks.nix).config.vim;
+    // (import ./conform.nix {inherit pkgs;}).config.vim // (import ./snacks.nix).config.vim;
 }
