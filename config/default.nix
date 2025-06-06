@@ -67,6 +67,12 @@
               };
             };
           };
+          "nil" = {
+            cmd = ["${pkgs.nil}/bin/nil"];
+            filetypes = ["nix"];
+            root_markers = ["flake.nix" ".git"];
+            single_file_support = true;
+          };
         };
       };
       lsp.inlayHints.enable = true;
