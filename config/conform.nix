@@ -37,13 +37,27 @@
           stdin = true;
           args = ["-"];
         };
+        clang_format = {
+          command = "clang-format";
+          stdin = true;
+        };
         mdformat = {
           command = "${pkgs.mdformat}/bin/mdformat";
           stdin = true;
           args = ["-"];
         };
+        ruff_format = {
+          command = "${pkgs.ruff}/bin/ruff";
+          prepend_args = ["format"];
+          stdin = true;
+        };
         shfmt = {
+          command = "${pkgs.shfmt}/bin/shfmt";
           prepend_args = ["-i" "2"];
+          stdin = true;
+        };
+        shellcheck = {
+          command = "${pkgs.shellcheck}/bin/shellcheck";
           stdin = true;
         };
         stylua = {
