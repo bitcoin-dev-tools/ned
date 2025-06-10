@@ -111,7 +111,10 @@
           desc = "Disable space key";
         }
       ];
-      augroups = [{name = "LSP";}];
+      augroups = [
+        {name = "LSP";}
+        {name = "UserEvents";}
+      ];
       autocmds = [
         {
           event = ["LspAttach"];
@@ -129,6 +132,21 @@
                   vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Do[K]umentation" })
                   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Do[K]umentation" })
                 end
+            end
+          '';
+        }
+        {
+          event = ["BufReadPost"];
+          group = "UserEvents";
+          desc = "Resume last known cursor position";
+          callback = lib.generators.mkLuaInline ''
+            function(args)
+              local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) <= vim.fn.line('$')
+              local not_commit = vim.b[args.buf].filetype ~= 'commit'
+
+              if valid_line and not_commit then
+                vim.cmd([[normal! g`"]])
+              end
             end
           '';
         }
