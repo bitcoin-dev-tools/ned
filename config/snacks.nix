@@ -335,19 +335,19 @@
       {
         key = "<leader>us";
         mode = ["n"];
-        action = ":lua Snacks.toggle.option('spell', { name = 'Spelling' })";
+        action = ":lua Snacks.toggle.option('spell', { name = 'Spelling' })<CR>";
         desc = "Toggle Spelling";
       }
       {
         key = "<leader>uw";
         mode = ["n"];
-        action = ":lua Snacks.toggle.option('wrap', { name = 'Wrap' })";
+        action = ":lua Snacks.toggle.option('wrap', { name = 'Wrap' })<CR>";
         desc = "Toggle Wrap";
       }
       {
         key = "<leader>uL";
         mode = ["n"];
-        action = ":lua Snacks.toggle.option('relativenumber', { name = 'Relative Number' })";
+        action = ":lua Snacks.toggle.option('relativenumber', { name = 'Relative Number' })<CR>";
         desc = "Toggle Relative Number";
       }
       {
@@ -365,7 +365,7 @@
       {
         key = "<leader>uc";
         mode = ["n"];
-        action = ":lua Snacks.toggle.option('conceallevel', { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })";
+        action = ":lua Snacks.toggle.option('conceallevel', { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })<CR>";
         desc = "Toggle Conceallevel";
       }
       {
@@ -377,7 +377,7 @@
       {
         key = "<leader>ub";
         mode = ["n"];
-        action = ":lua Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' })";
+        action = ":lua Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' })<CR>";
         desc = "Toggle Dark Background";
       }
       {
