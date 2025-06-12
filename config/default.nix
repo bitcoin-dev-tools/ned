@@ -3,6 +3,7 @@
   lib,
 }: {
   config.vim =
+    lib.recursiveUpdate
     {
       autocomplete.blink-cmp = {
         enable = true;
@@ -21,7 +22,11 @@
       };
       binds.whichKey.enable = true;
       enableLuaLoader = true;
-      git.enable = true;
+      git = {
+        enable = true;
+        gitsigns.enable = true;
+        gitsigns.codeActions.enable = false; # throws an annoying debug message
+      };
       languages = import ./languages.nix {inherit pkgs;};
       lsp = {
         enable = true;
@@ -169,10 +174,17 @@
           end
           ";
       };
+      utility = {
+        diffview-nvim.enable = true;
+      };
       visuals = {
         fidget-nvim.enable = true;
         nvim-web-devicons.enable = true;
       };
     }
-    // (import ./conform.nix {inherit pkgs;}).config.vim // (import ./snacks.nix).config.vim;
+    (
+      lib.recursiveUpdate
+      (import ./conform.nix {inherit pkgs;}).config.vim
+      (import ./snacks.nix).config.vim
+    );
 }
