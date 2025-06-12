@@ -14,7 +14,7 @@
         python = ["ruff_format"];
         rust = ["rustfmt"];
         sh = ["shfmt" "shellcheck"];
-        yaml = ["yamlfmt"];
+        yaml = ["${pkgs.yamlfmt}/bin/yamlfmt"];
         "_" = ["trim_whitespace"]; # If no other formatter specified
       };
       format_on_save = {
