@@ -178,6 +178,14 @@
           end
           ";
       };
+      lazy.plugins = {
+        "nvim-surround" = {
+          package = pkgs.vimPlugins.nvim-surround;
+          setupModule = "nvim-surround";
+          setupOpts = {};
+          event = ["BufRead" "BufNewFile"];
+        };
+      };
       utility = {
         diffview-nvim.enable = true;
       };
