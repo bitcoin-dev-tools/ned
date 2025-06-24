@@ -160,7 +160,11 @@
         enable = true;
         theme = "auto";
       };
-      theme.enable = true;
+      theme = {
+        enable = true;
+        name = "catppuccin";
+        style = "macchiato";
+      };
       treesitter = {
         enable = true;
         highlight.disable = lib.generators.mkLuaInline "
