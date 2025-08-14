@@ -25,12 +25,12 @@
         desc = "Toggle Zoom";
       }
       # Top Pickers & Explorer
-      {
-        key = "<leader>sf";
-        mode = ["n"];
-        action = ":lua Snacks.picker.smart()<CR>";
-        desc = "Smart Find Files";
-      }
+      # {
+      #   key = "<leader>sf";
+      #   mode = ["n"];
+      #   action = ":lua Snacks.picker.smart()<CR>";
+      #   desc = "Smart Find Files";
+      # }
       {
         key = "<leader><space>";
         mode = ["n"];
@@ -80,12 +80,12 @@
         action = ":lua Snacks.picker.files()<CR>";
         desc = "Find Files";
       }
-      {
-        key = "<leader>fg";
-        mode = ["n"];
-        action = ":lua Snacks.picker.git_files()<CR>";
-        desc = "Find Git Files";
-      }
+      # {
+      #   key = "<leader>fg";
+      #   mode = ["n"];
+      #   action = ":lua Snacks.picker.git_files()<CR>";
+      #   desc = "Find Git Files";
+      # }
       {
         key = "<leader>fp";
         mode = ["n"];

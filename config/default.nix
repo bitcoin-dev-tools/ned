@@ -199,6 +199,10 @@
     (
       lib.recursiveUpdate
       (import ./conform.nix {inherit pkgs;}).config.vim
-      (import ./snacks.nix).config.vim
+      (
+        lib.recursiveUpdate
+        (import ./snacks.nix).config.vim
+        (import ./fff.nix {inherit pkgs;}).config.vim
+      )
     );
 }
