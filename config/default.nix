@@ -146,14 +146,23 @@
           desc = "Resume last known cursor position";
           callback = lib.generators.mkLuaInline ''
             function(args)
-              local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) <= vim.fn.line('$')
-              local ignore_filetypes = { "gitcommit", "gitrebase", "svn", "hgcommit" }
-              local filetype = vim.bo[args.buf].filetype
-              local should_ignore = vim.tbl_contains(ignore_filetypes, filetype)
+              -- Use vim.schedule to ensure filetype is properly set
+              vim.schedule(function()
+                local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) <= vim.fn.line('$')
+                local ignore_filetypes = { "gitcommit", "gitrebase", "svn", "hgcommit" }
+                local filetype = vim.bo[args.buf].filetype
+                local filename = vim.api.nvim_buf_get_name(args.buf)
+                local should_ignore = vim.tbl_contains(ignore_filetypes, filetype)
 
-              if valid_line and not should_ignore then
-                vim.cmd([[normal! g`"]])
-              end
+                -- Also check filename pattern for COMMIT_EDITMSG
+                if filename:match("COMMIT_EDITMSG$") or filename:match("%.git/COMMIT_EDITMSG$") then
+                  should_ignore = true
+                end
+
+                if valid_line and not should_ignore then
+                  vim.cmd([[normal! g`"]])
+                end
+              end)
             end
           '';
         }
