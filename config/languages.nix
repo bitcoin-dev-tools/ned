@@ -10,6 +10,7 @@
 
   nix = {
     enable = true;
+    extraDiagnostics.enable = true;
   };
 
   python = {

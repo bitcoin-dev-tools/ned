@@ -169,6 +169,7 @@
       };
       treesitter = {
         enable = true;
+        indent.disable = ["nix"];
         highlight.disable = lib.generators.mkLuaInline "
           -- Disable slow treesitter highlight for large files
           function(lang, buf)
