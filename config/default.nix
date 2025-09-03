@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  fff-nvim-pkg,
 }: {
   config.vim =
     lib.recursiveUpdate
@@ -212,7 +213,10 @@
       (
         lib.recursiveUpdate
         (import ./snacks.nix).config.vim
-        (import ./fff.nix {inherit pkgs;}).config.vim
+        (import ./fff.nix {
+          inherit pkgs;
+          inherit fff-nvim-pkg;
+        }).config.vim
       )
     );
 }
