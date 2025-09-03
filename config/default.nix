@@ -19,6 +19,14 @@
             "omni"
             "cmdline"
           ];
+          completion = {
+            list = {
+              selection = {
+                preselect = false;
+                auto_insert = false;
+              };
+            };
+          };
         };
       };
       binds.whichKey.enable = true;
