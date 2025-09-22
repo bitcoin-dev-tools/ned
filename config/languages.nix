@@ -5,7 +5,6 @@
 
   clang = {
     enable = true;
-    lsp.enable = true;
   };
 
   nix = {
@@ -19,6 +18,5 @@
 
   rust = {
     enable = true;
-    lsp.enable = true;
   };
 }

@@ -107,6 +107,34 @@
               };
             };
           };
+          "clangd" = {
+            cmd = ["${pkgs.clang-tools}/bin/clangd"];
+            filetypes = ["c" "cpp" "objc" "objcpp" "cuda" "proto"];
+            root_markers = [
+              ".clangd"
+              ".clang-tidy"
+              ".clang-format"
+              "compile_commands.json"
+              "compile_flags.txt"
+              "configure.ac"
+              ".git"
+            ];
+            single_file_support = true;
+            capabilities = {
+              textDocument = {
+                semanticTokens = {
+                  multilineTokenSupport = true;
+                };
+              };
+              offsetEncoding = ["utf-16"];
+            };
+          };
+          "rust_analyzer" = {
+            cmd = ["${pkgs.rust-analyzer}/bin/rust-analyzer"];
+            filetypes = ["rust"];
+            root_markers = ["Cargo.toml" ".git"];
+            single_file_support = false;
+          };
         };
       };
       lsp.inlayHints.enable = true;
